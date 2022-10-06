@@ -1,0 +1,47 @@
+version: 0.2
+
+#env:
+  #variables:
+     # key: "value"
+     # key: "value"
+  #parameter-store:
+     # key: "value"
+     # key: "value"
+  #secrets-manager:
+     # key: secret-id:json-key:version-stage:version-id
+     # key: secret-id:json-key:version-stage:version-id
+  #exported-variables:
+     # - variable
+     # - variable
+  #git-credential-helper: yes
+
+phases:
+  # pre_build:
+  #   commands:
+  #     - echo Logging in to Amazon ECR...
+  #     - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 744721539376.dkr.ecr.ap-northeast-2.amazonaws.com
+  build:
+    commands:
+      - docker build -t "test1_image" ./test1/.
+      - docker run -it --rm -p 8080:8080 test1_image pytest
+  # post_build:
+  #   commands:
+      # - command
+#reports:
+  #report-name-or-arn:
+    #files:
+      # - location
+      # - location
+    #base-directory: location
+    #discard-paths: yes
+    #file-format: JunitXml | CucumberJson
+artifacts:
+  files:
+    - ./**/*
+    # - location
+  #name: $(date +%Y-%m-%d)
+  #discard-paths: yes
+  base-directory: test1
+#cache:
+  #paths:
+    # - paths
