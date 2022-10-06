@@ -23,7 +23,7 @@ phases:
   build:
     commands:
       - docker build -t "test1_image" ./test1/.
-      - docker run -it --rm -p 8080:8080 test1_image pytest
+      - docker run -i --rm -p 8080:8080 test1_image pytest
   # post_build:
   #   commands:
       # - command
