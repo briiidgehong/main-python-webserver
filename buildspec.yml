@@ -22,7 +22,7 @@ phases:
   #     - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 744721539376.dkr.ecr.ap-northeast-2.amazonaws.com
   build:
     commands:
-      - docker build -t "test1_image" ./test1/.
+      - docker build -t "test1_image" .
       - docker run -i --rm -p 8080:8080 test1_image pytest
   # post_build:
   #   commands:
@@ -41,7 +41,7 @@ artifacts:
     # - location
   #name: $(date +%Y-%m-%d)
   #discard-paths: yes
-  base-directory: test1
+  # base-directory: .
 #cache:
   #paths:
     # - paths
