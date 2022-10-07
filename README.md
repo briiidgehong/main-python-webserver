@@ -5,3 +5,14 @@ docker run -d -p 8080:8080 <image_name>
 ```
 
 ## test2
+
+
+## 1. EC2 + DOCKER
+
+## 2. ELASTIC BEANSTALK + DOCKER
+
+  ### 2-1. EB + DOCKER
+  ### 2-2. EB + DOCKER
+
+## 3. ECR + FARGATE + DOCKER + CODEPIPELINE
+
