@@ -8,6 +8,7 @@ docker run -d -p 8080:8080 <image_name>
 
 
 ## 1. EC2 + DOCKER
+https://intrepidgeeks.com/tutorial/how-to-use-docker-to-deploy-fastapi-applications-in-aws
 
 ## 2. ELASTIC BEANSTALK + DOCKER
 
