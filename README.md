@@ -99,6 +99,8 @@ print(b)
 
 ## NGINX와 CGI(==FCGI) / ASGI / WSGI
 rf) https://show-me-the-money.tistory.com/entry/CGI%EC%99%80-WSGI%EC%9D%84-%ED%8C%8C%ED%97%A4%EC%B9%98%EB%8B%A4 <br/>
+rf) https://velog.io/@ryu_log/CGI-WSGI-ASGI <br/>
+
 <img width="619" alt="스크린샷 2022-10-11 오후 2 41 52" src="https://user-images.githubusercontent.com/73451727/195006011-73503b40-a971-4dbd-aed1-3e23ece85919.png">
 <img width="828" alt="스크린샷 2022-10-11 오후 2 37 10" src="https://user-images.githubusercontent.com/73451727/195006060-c0e30efc-6421-41e0-b126-1fcbc83c5d7d.png">
 
