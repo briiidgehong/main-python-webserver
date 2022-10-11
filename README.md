@@ -97,7 +97,7 @@ print(b)
 ```
 ./helloworld.py -> 성공 !
 
-## NGINX와 CGI(==FCGI) / ASGI / WSGI
+## NGINX와 CGI(==FCGI) / WSGI / ASGI
 rf) https://show-me-the-money.tistory.com/entry/CGI%EC%99%80-WSGI%EC%9D%84-%ED%8C%8C%ED%97%A4%EC%B9%98%EB%8B%A4 <br/>
 rf) https://velog.io/@ryu_log/CGI-WSGI-ASGI <br/>
 
