@@ -10,10 +10,10 @@ docker run -d -p 8080:8080 <image_name>
 - server의 webserver에서 요청을 받아 index.html file을 꺼내서 response 한다.
 
 ### WEB SERVER의 종류에는 apache / iis / nginx 등이 있다.
-docker pull nginx
-docker images
-docker run --name nginx-test -d -p 8080:80 nginx:latest
-0.0.0.0:8080
+docker pull nginx <br/>
+docker images <br/>
+docker run --name nginx-test -d -p 8080:80 nginx:latest <br/>
+0.0.0.0:8080 <br/>
 <img width="586" alt="스크린샷 2022-10-09 오후 3 35 56" src="https://user-images.githubusercontent.com/73451727/194741836-11c04eb3-99b0-42ba-a787-e58357d63705.png">
 
 docker ps
