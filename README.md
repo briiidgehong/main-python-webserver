@@ -16,9 +16,9 @@ docker run --name nginx-test -d -p 8080:80 nginx:latest <br/>
 0.0.0.0:8080 <br/>
 <img width="586" alt="스크린샷 2022-10-09 오후 3 35 56" src="https://user-images.githubusercontent.com/73451727/194741836-11c04eb3-99b0-42ba-a787-e58357d63705.png">
 
-docker ps
-docker exec -it e4a3bd1342e5 /bin/bash
-/etc/nginx/conf.d/default.conf
+docker ps <br/>
+docker exec -it e4a3bd1342e5 /bin/bash <br/>
+/etc/nginx/conf.d/default.conf <br/>
 
 ```
 server {
