@@ -66,6 +66,7 @@ server {
 apt-get update <br/>
 apt-get install vim python3 python3-pip fcgiwrap <br/>
 pip3 install art <br/>
+spawn-fcgi -s /var/run/fcgiwrap.socket -M 766 /usr/sbin/fcgiwrap <br/>
 <br/>
 python3 --version <br/>
 apt --installed list <br/>
