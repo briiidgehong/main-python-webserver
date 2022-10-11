@@ -67,35 +67,42 @@ server {
 }
 ```
 
-apt-get update
-apt-get insatll vim
-apt-get python3 python3-pip
-pip3 install art
-python3 --version
+vi /etc/nginx/conf.d/default.conf
+```
+location /cgi-bin/ {
+  gzip off;
+  root  /usr/lib;
+  fastcgi_pass  unix:/var/run/fcgiwrap.socket;
+  include /etc/nginx/fastcgi_params;
+  fastcgi_param SCRIPT_FILENAME  /usr/lib$fastcgi_script_name;
+}
+```
 
-vi helloworld.py 
+service nginx restart
+0.0.0.0:8080/cgi-bin/test.py
+
+## NGINX - FastCGI - PYTHON
+
+apt-get update
+apt-get install vim python3 python3-pip fcgiwrap
+pip3 install art
+
+python3 --version
+apt --installed list
+
+vi /usr/share/nginx/cgi-bin/test.py 
 ```
 #!/usr/bin/python3
 from art import *
-a = 3+4+5
-b = a / 3
-print(b)
-Art=text2art("TEST", font='block', chr_ignore=True)
+Art=text2art("TEST",font='block',chr_ignore=True)
+print('Content-Type: text/plain')
+print('')
+print('This is my test!')
 print(Art)
 ```
 
-./helloworld.py -> err: 실행권한없음
-chmod 777 helloworld.py
-
-./helloworld.py -> err: 어떤프로그램으로 실행시켜야하는지 모름
-type python3 -> /usr/bin/python3
-```
-!#/usr/bin/python3
-a = 3 + 4 + 5
-b = a / 3
-print(b)
-```
-./helloworld.py -> 성공 !
+chmod 777 /usr/share/nginx/cgi-bin/test.py
+python3 /usr/share/nginx/cgi-bin/test.py -> 성공 !
 
 ## NGINX와 CGI(==FCGI) / WSGI / ASGI
 rf) https://show-me-the-money.tistory.com/entry/CGI%EC%99%80-WSGI%EC%9D%84-%ED%8C%8C%ED%97%A4%EC%B9%98%EB%8B%A4 <br/>
