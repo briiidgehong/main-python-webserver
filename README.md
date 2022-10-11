@@ -61,30 +61,16 @@ server {
 }
 ```
 
-vi /etc/nginx/conf.d/default.conf
-```
-location /cgi-bin/ {
-  gzip off;
-  root  /usr/lib;
-  fastcgi_pass  unix:/var/run/fcgiwrap.socket;
-  include /etc/nginx/fastcgi_params;
-  fastcgi_param SCRIPT_FILENAME  /usr/lib$fastcgi_script_name;
-}
-```
-
-service nginx restart
-0.0.0.0:8080/cgi-bin/test.py
-
 ## NGINX - FastCGI - PYTHON
 
-apt-get update
-apt-get install vim python3 python3-pip fcgiwrap
-pip3 install art
-
-python3 --version
-apt --installed list
-
-vi /usr/share/nginx/cgi-bin/test.py 
+apt-get update <br/>
+apt-get install vim python3 python3-pip fcgiwrap <br/>
+pip3 install art <br/>
+<br/>
+python3 --version <br/>
+apt --installed list <br/>
+<br/>
+vi /usr/share/nginx/cgi-bin/test.py <br/>
 ```
 #!/usr/bin/python3
 from art import *
@@ -95,8 +81,22 @@ print('This is my test!')
 print(Art)
 ```
 
-chmod 777 /usr/share/nginx/cgi-bin/test.py
-python3 /usr/share/nginx/cgi-bin/test.py -> 성공 !
+chmod 777 /usr/share/nginx/cgi-bin/test.py <br/>
+python3 /usr/share/nginx/cgi-bin/test.py -> 성공 ! <br/>
+<br/>
+vi /etc/nginx/conf.d/default.conf <br/>
+```
+location /cgi-bin/ {
+  gzip off;
+  root  /usr/lib;
+  fastcgi_pass  unix:/var/run/fcgiwrap.socket;
+  include /etc/nginx/fastcgi_params;
+  fastcgi_param SCRIPT_FILENAME  /usr/lib$fastcgi_script_name;
+}
+```
+<br/>
+service nginx restart <br/>
+0.0.0.0:8080/cgi-bin/test.py <br/>
 
 ## NGINX와 CGI(==FCGI) / WSGI / ASGI
 rf) https://show-me-the-money.tistory.com/entry/CGI%EC%99%80-WSGI%EC%9D%84-%ED%8C%8C%ED%97%A4%EC%B9%98%EB%8B%A4 <br/>
