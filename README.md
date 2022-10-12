@@ -242,7 +242,40 @@ service nginx restart
 ```
 
 ## NGINX - UVICORN(ASGI) - FASTAPI
+rf) https://soyoung-new-challenge.tistory.com/81?category=890342 <br/>
 
+```
+pip install fastapi uvicorn
+main.py
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+async def root():
+	return { "message" : "Hello World" }
+
+uvicorn main:app --reload --host=0.0.0.0 --port=8888
+
+sudo vi /etc/nignx/sites-enabled/rest_api_project
+
+server {
+    listen 80;
+    server_name 13.230.6.223;
+
+    charset utf-8;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://13.230.6.223:8000;
+
+    }
+    
+service nginx restart
+13.230.6.223:80 -> 성공 !
+
+```
 
 ## JAVA 진영과의 비교
 WAS (Web Application Server)
