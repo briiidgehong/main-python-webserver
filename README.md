@@ -66,7 +66,7 @@ rf) https://techexpert.tips/nginx/python-cgi-nginx/ <br/>
 rf) https://www.youtube.com/watch?v=FQ0lOhIKfOI&t=29s <br/>
 
 ```
-# ubuntu server
+# on ubuntu server
 
 # dependency install
 apt-get update
