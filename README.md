@@ -284,10 +284,11 @@ service nginx restart
 
 ```
 
-## JAVA 진영과의 비교
+## WAS + JAVA 진영과의 비교
 WAS (Web Application Server)
-web server + tomcat
+웹서버가 동적으로 기능하면 WAS이다. 즉, Web Server + CGI가 WAS이다.
 
+<img width="829" alt="스크린샷 2022-10-12 오후 5 36 52" src="https://user-images.githubusercontent.com/73451727/195293782-1d2a3144-3bb3-4a37-abcf-b9e576a82cad.png">
 
 ## 1. EC2 + DOCKER
 https://intrepidgeeks.com/tutorial/how-to-use-docker-to-deploy-fastapi-applications-in-aws
