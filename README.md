@@ -155,6 +155,92 @@ http://35.78.124.62/cgi-bin/test.py <br/>
 ## NGINX - GUNICORN(WSGI) - DJANGO
 rf) https://soyoung-new-challenge.tistory.com/62
 
+#### - 요약 (80: nginx / 8000: gunicorn)
+```
+server {
+    listen 80;
+    server_name 13.230.6.223;
+
+    charset utf-8;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://13.230.6.223:8000;
+
+    }
+```
+
+```
+# install conda
+wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh
+bash Anaconda3-2019.10-Linux-x86_64.sh -> enter / yes
+source ~/.bashrc
+conda --version
+
+conda create --name "django-gunicorn-env" python=3.5.6
+conda env list
+conda activate django-gunicorn-env
+
+pip install upgrade pip
+pip install django djangorestframework
+
+django-admin startproject rest_api_project
+python manage.py runserver 0.0.0.0:8000
+
+setting.py
+DEBUG = True
+ALLOWED_HOSTS = ['*']
+
+# install gunicorn
+pip install gunicorn
+gunicorn --bind 0.0.0.0:8000 rest_api_project.wsgi:application
+13.230.6.223:8000
+
+# gunicorn into daemon
+sudo vi /etc/systemd/system/gunicorn.service
+
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/home/ubuntu/RESTproject
+ExecStart=/home/ubuntu/anaconda3/envs/django-env/bin/gunicorn --bind 0.0.0.0:8000 RESTproject.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+sudo systemctl start gunicorn
+sudo systemctl enable gunicorn
+sudo systemctl status gunicorn.service
+
+# install nginx
+sudo apt-get update
+sudo apt-get install nginx
+
+service nginx start
+service nginx status
+
+sudo vi /etc/nignx/sites-enabled/rest_api_project
+
+server {
+    listen 80;
+    server_name 13.230.6.223;
+
+    charset utf-8;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://13.230.6.223:8000;
+
+    }
+    
+service nginx restart
+13.230.6.223:80 -> 성공 !
+```
+
 ## NGINX - UVICORN(ASGI) - FASTAPI
 
 
