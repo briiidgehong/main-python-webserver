@@ -4,6 +4,7 @@
 - server의 webserver에서 요청을 받아 index.html file을 꺼내서 response 한다.
 
 ### WEB SERVER의 종류에는 apache / iis / nginx 등이 있다.
+#### - NGINX
 docker pull nginx <br/>
 docker images <br/>
 docker run --name nginx-test -d -p 8080:80 nginx:latest <br/>
@@ -12,6 +13,7 @@ docker run --name nginx-test -d -p 8080:80 nginx:latest <br/>
 
 docker ps <br/>
 docker exec -it e4a3bd1342e5 /bin/bash <br/>
+find / -name "*.conf*" # root 및 그 하위 directory에서 검색 <br/>
 /etc/nginx/conf.d/default.conf <br/>
 
 ```
@@ -60,6 +62,27 @@ server {
     #}
 }
 ```
+
+## 요청에따른 웹서버(NGINX)의 처리방식
+#### 정적콘텐츠 요청 -> NGINX -> 정적콘텐츠 반환
+#### 동적콘텐츠 요청 -> NGINX -> CGI -> python application -> CGI -> NGINX -> 동적콘텐츠 반환
+<img width="619" alt="스크린샷 2022-10-11 오후 2 41 52" src="https://user-images.githubusercontent.com/73451727/195006011-73503b40-a971-4dbd-aed1-3e23ece85919.png">
+<img width="828" alt="스크린샷 2022-10-11 오후 2 37 10" src="https://user-images.githubusercontent.com/73451727/195006060-c0e30efc-6421-41e0-b126-1fcbc83c5d7d.png">
+
+
+## NGINX CGI(FCGI) ASGI WSGI
+rf) https://show-me-the-money.tistory.com/entry/CGI%EC%99%80-WSGI%EC%9D%84-%ED%8C%8C%ED%97%A4%EC%B9%98%EB%8B%A4 <br/>
+rf) https://velog.io/@ryu_log/CGI-WSGI-ASGI <br/>
+
+- CGI는 Common Gateway Interface의 약자로 웹서버와 외부 프로그램을 연결해주는 표준화된 프로토콜이다. 웹이 처음 등장했을 때는 HTML과 이미지를 전달해주는 웹서버밖에 없었다. 하지만 웹에 대한 수요가 증가함에 따라서 정적인 HTML만을 가지고 정보를 제공하는 것에 한계가 생겼고, 이를 극복하기 위해서 등장한 기술이 CGI다. 웹서버로 요청이 들어왔을 때 그것이 웹서버가 처리할 수 없는 정보일 때 그 정보를 처리할 수 있는 외부 프로그램을 호출해서 외부 프로그램이 처리한 결과를 웹서버가 받아서 브라우저로 전송하는 것이다.
+즉, 웹서버에서 처리할수 없는 요청을 python application에게 요청하고 받아오는 중간의 인터페이스가 CGI(=웹서버와 python을 연결시켜주는 인터페이스)
+
+- CGI vs FastCGI
+CGI는 요청이 있을때마다 프로세스를 새로 띄워 요청을 처리하고 죽는다. FastCGI는 요청을 처리하는 프로세스들을 미리 띄워놓고 요청이 있을때마다 프로세스에게 할당한다.
+
+- FastCGI vs ASGI
+- FastCGI vs WSGI
+
 
 ## NGINX - FastCGI - PYTHON
 rf) https://techexpert.tips/nginx/python-cgi-nginx/ <br/>
@@ -119,32 +142,6 @@ chmod 777 (-R) test.py
 
 http://35.78.124.62/cgi-bin/test.py <br/>
 <img width="655" alt="스크린샷 2022-10-12 오전 10 50 19" src="https://user-images.githubusercontent.com/73451727/195230349-4167fb2d-c6f2-4879-bfae-8994d8e8f70e.png"> <br/>
-
-## NGINX와 CGI(==FCGI) / WSGI / ASGI
-rf) https://show-me-the-money.tistory.com/entry/CGI%EC%99%80-WSGI%EC%9D%84-%ED%8C%8C%ED%97%A4%EC%B9%98%EB%8B%A4 <br/>
-rf) https://velog.io/@ryu_log/CGI-WSGI-ASGI <br/>
-
-<img width="619" alt="스크린샷 2022-10-11 오후 2 41 52" src="https://user-images.githubusercontent.com/73451727/195006011-73503b40-a971-4dbd-aed1-3e23ece85919.png">
-<img width="828" alt="스크린샷 2022-10-11 오후 2 37 10" src="https://user-images.githubusercontent.com/73451727/195006060-c0e30efc-6421-41e0-b126-1fcbc83c5d7d.png">
-
-- CGI는 Common Gateway Interface의 약자로 웹서버와 외부 프로그램을 연결해주는 표준화된 프로토콜이다. 웹이 처음 등장했을 때는 HTML과 이미지를 전달해주는 웹서버밖에 없었다. 하지만 웹에 대한 수요가 증가함에 따라서 정적인 HTML만을 가지고 정보를 제공하는 것에 한계가 생겼고, 이를 극복하기 위해서 등장한 기술이 CGI다. 웹서버로 요청이 들어왔을 때 그것이 웹서버가 처리할 수 없는 정보일 때 그 정보를 처리할 수 있는 외부 프로그램을 호출해서 외부 프로그램이 처리한 결과를 웹서버가 받아서 브라우저로 전송하는 것이다.
-즉, 웹서버에서 처리할수 없는 요청을 python application에게 요청하고 받아오는 중간의 인터페이스가 CGI(=웹서버와 python을 연결시켜주는 인터페이스)
-
-- CGI vs FastCGI
-CGI는 요청이 있을때마다 프로세스를 새로 띄워 요청을 처리하고 죽는다. FastCGI는 요청을 처리하는 프로세스들을 미리 띄워놓고 요청이 있을때마다 프로세스에게 할당한다.
-
-- FastCGI vs ASGI
-- FastCGI vs WSGI
-
-
-
-find / -name "*cgi*" # root 및 그 하위 directory에서 검색
-fing / -name nginx.conf
-/etc/nginx/nginx.conf
-apt-get install fcgiwrap
-cp /usr/share/doc/fcgiwrap/examples/nginx.conf /etc/nginx/fcgiwrap.conf
-
-
 
 
 
