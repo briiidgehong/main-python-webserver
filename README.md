@@ -80,10 +80,7 @@ rf) https://jellybeanz.medium.com/cgi-wsgi-asgi-%EB%9E%80-cgi-wsgi-asgi-bc0ba75f
 즉, 웹서버에서 처리할수 없는 요청을 python application에게 요청하고 받아오는 중간의 인터페이스가 CGI(=웹서버와 python을 연결시켜주는 인터페이스)
 <img width="887" alt="스크린샷 2022-10-12 오후 2 40 57" src="https://user-images.githubusercontent.com/73451727/195259399-05a77f6b-77c7-4c63-b69f-6259881af7a4.png">
 
-
 #### - FastCGI
-- CGI vs FastCGI
-CGI는 요청이 있을때마다 프로세스를 새로 띄워 요청을 처리하고 죽는다. FastCGI는 요청을 처리하는 프로세스들을 미리 띄워놓고 요청이 있을때마다 프로세스에게 할당한다. CGI와는 달리 이 프로세스는 웹서버가 아닌 Fast CGI서버가 관리
 <img width="922" alt="스크린샷 2022-10-12 오후 2 41 07" src="https://user-images.githubusercontent.com/73451727/195259408-f839662c-28d8-4377-84e6-17116e536c6c.png">
 
 #### - WSGI (Web Server Gateway Interface)
@@ -91,6 +88,13 @@ CGI는 요청이 있을때마다 프로세스를 새로 띄워 요청을 처리�
 
 #### - ASGI (Asynchronous Server Gateway Interface)
 <img width="744" alt="스크린샷 2022-10-12 오후 12 09 54" src="https://user-images.githubusercontent.com/73451727/195241036-9828143e-05f0-483c-bd9f-bbca20fd2433.png">
+
+##### CGI vs FastCGI
+- CGI vs FastCGI
+CGI는 요청이 있을때마다 프로세스를 새로 띄워 요청을 처리하고 죽는다. FastCGI는 요청을 처리하는 프로세스들을 미리 띄워놓고 요청이 있을때마다 프로세스에게 할당한다. CGI와는 달리 이 프로세스는 웹서버가 아닌 Fast CGI서버가 관리
+
+##### WSGI vs ASGI
+WSGI는 비동기처리 불가, ASGI는 비동기 처리 가능하다. 그러나 ASGI 를 쓰면서 DB 처리 또한 비동기화 되어야 성능을 비약적으로 올릴수 있다.
 
 
 ## NGINX - FastCGI - PYTHON
