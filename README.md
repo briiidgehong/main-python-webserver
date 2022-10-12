@@ -62,31 +62,21 @@ server {
 ```
 
 ## NGINX - FastCGI - PYTHON
+rf) https://techexpert.tips/nginx/python-cgi-nginx/ <br/>
+rf) https://www.youtube.com/watch?v=FQ0lOhIKfOI&t=29s <br/>
 
-apt-get update <br/>
-apt-get install vim python3 python3-pip fcgiwrap <br/>
-pip3 install art <br/>
-spawn-fcgi -s /var/run/fcgiwrap.socket -M 766 /usr/sbin/fcgiwrap <br/>
-<br/>
-python3 --version <br/>
-apt --installed list <br/>
-<br/>
-vi /usr/share/nginx/cgi-bin/test.py <br/>
 ```
-#!/usr/bin/python3
-from art import *
-Art=text2art("TEST",font='block',chr_ignore=True)
-print('Content-Type: text/plain')
-print('')
-print('This is my test!')
-print(Art)
-```
+# ubuntu server
 
-chmod 777 /usr/share/nginx/cgi-bin/test.py <br/>
-python3 /usr/share/nginx/cgi-bin/test.py -> 성공 ! <br/>
-<br/>
-vi /etc/nginx/conf.d/default.conf <br/>
-```
+# dependency install
+apt-get update
+apt-get upgrade
+
+apt-get install nginx fcgiwrap python3 python3-pip vim
+service  --status-all
+
+# /cgi-bin/ 경로로 들어올때 nginx에서 fast cgi 사용해서 처리하도록 세팅
+cp /usr/share/doc/fcgiwrap/examples/nginx.conf /etc/nginx/fcgiwrap.conf
 location /cgi-bin/ {
   gzip off;
   root  /usr/lib;
@@ -94,10 +84,41 @@ location /cgi-bin/ {
   include /etc/nginx/fastcgi_params;
   fastcgi_param SCRIPT_FILENAME  /usr/lib$fastcgi_script_name;
 }
+
+vi /etc/nginx/sites-available/default
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+        server_name _;
+        location / {
+                try_files $uri $uri/ =404;
+        }
+include fcgiwrap.conf;
+}
+
+service nginx restart
+
+# test.py 스크립트 작성
+mkdir /usr/lib/cgi-bin -p
+cd /usr/lib/cgi-bin 
+
+type python3
+vi test.py
+#!/usr/bin/python3
+from art import *
+Art=text2art("TEST",font='block',chr_ignore=True)
+print('Content-Type: text/plain')
+print('')
+print('This is my test!')
+print(Art)
+
+chmod 777 (-R) test.py
 ```
-<br/>
-service nginx restart <br/>
-0.0.0.0:8080/cgi-bin/test.py <br/>
+
+http://35.78.124.62/cgi-bin/test.py <br/>
+<img width="655" alt="스크린샷 2022-10-12 오전 10 50 19" src="https://user-images.githubusercontent.com/73451727/195230349-4167fb2d-c6f2-4879-bfae-8994d8e8f70e.png"> <br/>
 
 ## NGINX와 CGI(==FCGI) / WSGI / ASGI
 rf) https://show-me-the-money.tistory.com/entry/CGI%EC%99%80-WSGI%EC%9D%84-%ED%8C%8C%ED%97%A4%EC%B9%98%EB%8B%A4 <br/>
