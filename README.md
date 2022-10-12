@@ -88,6 +88,9 @@ rf) https://jellybeanz.medium.com/cgi-wsgi-asgi-%EB%9E%80-cgi-wsgi-asgi-bc0ba75f
 
 #### - ASGI (Asynchronous Server Gateway Interface)
 <img width="744" alt="스크린샷 2022-10-12 오후 12 09 54" src="https://user-images.githubusercontent.com/73451727/195241036-9828143e-05f0-483c-bd9f-bbca20fd2433.png">
+<img width="1197" alt="스크린샷 2022-10-12 오후 5 32 41" src="https://user-images.githubusercontent.com/73451727/195292816-c9c0fa80-a291-4dc9-99a0-0878dda774cf.png">
+rf) https://breezymind.com/start-asgi-framework/
+
 
 ##### CGI vs FastCGI
 - CGI vs FastCGI
