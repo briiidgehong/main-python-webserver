@@ -78,11 +78,13 @@ rf) https://jellybeanz.medium.com/cgi-wsgi-asgi-%EB%9E%80-cgi-wsgi-asgi-bc0ba75f
 #### - CGI (Common Gateway Interface)
 - CGI는 Common Gateway Interface의 약자로 웹서버와 외부 프로그램을 연결해주는 표준화된 프로토콜이다. 웹이 처음 등장했을 때는 HTML과 이미지를 전달해주는 웹서버밖에 없었다. 하지만 웹에 대한 수요가 증가함에 따라서 정적인 HTML만을 가지고 정보를 제공하는 것에 한계가 생겼고, 이를 극복하기 위해서 등장한 기술이 CGI다. 웹서버로 요청이 들어왔을 때 그것이 웹서버가 처리할 수 없는 정보일 때 그 정보를 처리할 수 있는 외부 프로그램을 호출해서 외부 프로그램이 처리한 결과를 웹서버가 받아서 브라우저로 전송하는 것이다.
 즉, 웹서버에서 처리할수 없는 요청을 python application에게 요청하고 받아오는 중간의 인터페이스가 CGI(=웹서버와 python을 연결시켜주는 인터페이스)
+<img width="887" alt="스크린샷 2022-10-12 오후 2 40 57" src="https://user-images.githubusercontent.com/73451727/195259399-05a77f6b-77c7-4c63-b69f-6259881af7a4.png">
+
 
 #### - FastCGI
 - CGI vs FastCGI
 CGI는 요청이 있을때마다 프로세스를 새로 띄워 요청을 처리하고 죽는다. FastCGI는 요청을 처리하는 프로세스들을 미리 띄워놓고 요청이 있을때마다 프로세스에게 할당한다. CGI와는 달리 이 프로세스는 웹서버가 아닌 Fast CGI서버가 관리
-
+<img width="922" alt="스크린샷 2022-10-12 오후 2 41 07" src="https://user-images.githubusercontent.com/73451727/195259408-f839662c-28d8-4377-84e6-17116e536c6c.png">
 
 #### - WSGI (Web Server Gateway Interface)
 <img width="691" alt="스크린샷 2022-10-12 오후 12 09 45" src="https://user-images.githubusercontent.com/73451727/195241024-231f39c9-23ad-4024-b87b-baed19495664.png">
