@@ -151,6 +151,10 @@ http://35.78.124.62/cgi-bin/test.py <br/>
 <img width="655" alt="스크린샷 2022-10-12 오전 10 50 19" src="https://user-images.githubusercontent.com/73451727/195230349-4167fb2d-c6f2-4879-bfae-8994d8e8f70e.png"> <br/>
 
 
+## JAVA 진영과의 비교
+WAS (Web Application Server)
+web server + tomcat
+
 
 ## 1. EC2 + DOCKER
 https://intrepidgeeks.com/tutorial/how-to-use-docker-to-deploy-fastapi-applications-in-aws
