@@ -80,10 +80,14 @@ rf) https://velog.io/@ryu_log/CGI-WSGI-ASGI <br/>
 
 #### - FastCGI
 - CGI vs FastCGI
-CGI는 요청이 있을때마다 프로세스를 새로 띄워 요청을 처리하고 죽는다. FastCGI는 요청을 처리하는 프로세스들을 미리 띄워놓고 요청이 있을때마다 프로세스에게 할당한다.
+CGI는 요청이 있을때마다 프로세스를 새로 띄워 요청을 처리하고 죽는다. FastCGI는 요청을 처리하는 프로세스들을 미리 띄워놓고 요청이 있을때마다 프로세스에게 할당한다. CGI와는 달리 이 프로세스는 웹서버가 아닌 Fast CGI서버가 관리
+
 
 #### - WSGI (Web Server Gateway Interface)
+<img width="691" alt="스크린샷 2022-10-12 오후 12 09 45" src="https://user-images.githubusercontent.com/73451727/195241024-231f39c9-23ad-4024-b87b-baed19495664.png">
+
 #### - ASGI (Asynchronous Server Gateway Interface)
+<img width="744" alt="스크린샷 2022-10-12 오후 12 09 54" src="https://user-images.githubusercontent.com/73451727/195241036-9828143e-05f0-483c-bd9f-bbca20fd2433.png">
 
 
 ## NGINX - FastCGI - PYTHON
