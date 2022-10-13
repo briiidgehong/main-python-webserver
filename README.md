@@ -1,4 +1,4 @@
-## WEB SERVER
+## 1. WEB SERVER
 <img width="768" alt="스크린샷 2022-10-09 오후 3 07 53" src="https://user-images.githubusercontent.com/73451727/194741222-22f25b8d-e14d-47ad-8ccf-28249c7e2b39.png">
 - client의 request = "나는 index.html 파일을 원합니다." <br/>
 - server의 webserver에서 요청을 받아 index.html file을 꺼내서 response 한다.
@@ -63,14 +63,14 @@ server {
 }
 ```
 
-## 요청에따른 웹서버(NGINX)의 처리방식
+## 2. 요청에따른 웹서버(NGINX)의 처리방식
 #### 정적콘텐츠 요청 -> NGINX -> 정적콘텐츠 반환
 #### 동적콘텐츠 요청 -> NGINX -> CGI -> python application -> CGI -> NGINX -> 동적콘텐츠 반환
 <img width="619" alt="스크린샷 2022-10-11 오후 2 41 52" src="https://user-images.githubusercontent.com/73451727/195006011-73503b40-a971-4dbd-aed1-3e23ece85919.png">
 <img width="828" alt="스크린샷 2022-10-11 오후 2 37 10" src="https://user-images.githubusercontent.com/73451727/195006060-c0e30efc-6421-41e0-b126-1fcbc83c5d7d.png">
 
 
-## NGINX CGI(FCGI) ASGI WSGI
+## 3. NGINX CGI(FCGI) ASGI WSGI
 rf) https://show-me-the-money.tistory.com/entry/CGI%EC%99%80-WSGI%EC%9D%84-%ED%8C%8C%ED%97%A4%EC%B9%98%EB%8B%A4 <br/>
 rf) https://velog.io/@ryu_log/CGI-WSGI-ASGI <br/>
 rf) https://jellybeanz.medium.com/cgi-wsgi-asgi-%EB%9E%80-cgi-wsgi-asgi-bc0ba75fa5cd <br/>
@@ -100,7 +100,7 @@ CGI는 요청이 있을때마다 프로세스를 새로 띄워 요청을 처리�
 WSGI는 비동기처리 불가, ASGI는 비동기 처리 가능하다. 그러나 ASGI 를 쓰면서 DB 처리 또한 비동기화 되어야 성능을 비약적으로 올릴수 있다.
 
 
-## NGINX - FastCGI - PYTHON
+### 3-1. NGINX - FastCGI - PYTHON
 rf) https://techexpert.tips/nginx/python-cgi-nginx/ <br/>
 rf) https://www.youtube.com/watch?v=FQ0lOhIKfOI&t=29s <br/>
 
@@ -159,7 +159,7 @@ chmod 777 (-R) test.py
 http://35.78.124.62/cgi-bin/test.py <br/>
 <img width="655" alt="스크린샷 2022-10-12 오전 10 50 19" src="https://user-images.githubusercontent.com/73451727/195230349-4167fb2d-c6f2-4879-bfae-8994d8e8f70e.png"> <br/>
 
-## NGINX - GUNICORN(WSGI) - DJANGO
+### 3-2. NGINX - GUNICORN(WSGI) - DJANGO
 rf) https://soyoung-new-challenge.tistory.com/62
 
 #### - 요약 (80: nginx / 8000: gunicorn)
@@ -248,7 +248,7 @@ service nginx restart
 13.230.6.223:80 -> 성공 !
 ```
 
-## NGINX - UVICORN(ASGI) - FASTAPI
+### 3-3. NGINX - UVICORN(ASGI) - FASTAPI
 rf) https://soyoung-new-challenge.tistory.com/81?category=890342 <br/>
 
 ```
@@ -281,16 +281,23 @@ server {
     
 service nginx restart
 13.230.6.223:80 -> 성공 !
-
 ```
 
-## WAS + JAVA 진영과의 비교
+### 3-4. WAS + JAVA 진영과의 비교
 WAS (Web Application Server)
 웹서버가 동적으로 기능하면 WAS이다. 즉, Web Server + CGI가 WAS이다.
 
 <img width="829" alt="스크린샷 2022-10-12 오후 5 36 52" src="https://user-images.githubusercontent.com/73451727/195293782-1d2a3144-3bb3-4a37-abcf-b9e576a82cad.png">
 
-## 1. EC2 + DOCKER
+## 4. 환경 구성
+### 4-1. EC2 + FASTAPI
+
+### 4-2. ELASTIC BEANSTALK + DOCKER
+
+### 4-3. ECR + FARGATE + DOCKER + CODEPIPELINE
+
+
+EC2 + DOCKER
 https://intrepidgeeks.com/tutorial/how-to-use-docker-to-deploy-fastapi-applications-in-aws
 
 ## 2. ELASTIC BEANSTALK + DOCKER
