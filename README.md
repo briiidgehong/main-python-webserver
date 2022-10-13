@@ -1,7 +1,7 @@
 # INDEX 
-1. [WEB SERVER](#1-web-server)
-2. [요청에따른 웹서버(NGINX)의 처리방식](#2-요청에따른-웹서버nginx의-처리방식)
-3. [NGINX CGI(FCGI) ASGI WSGI](#3-nginx-cgifcgi-asgi-wsgi)
+> 1. [WEB SERVER](#1-web-server)
+> 2. [요청에따른 웹서버(NGINX)의 처리방식](#2-요청에따른-웹서버nginx의-처리방식)
+> 3. [NGINX CGI(FCGI) ASGI WSGI](#3-nginx-cgifcgi-asgi-wsgi)
 >> 3-1. [NGINX - FastCGI - PYTHON](#3-1-nginx---fastcgi---python)
 >> 3-2. [NGINX - GUNICORN(WSGI) - DJANGO](#3-2-nginx---gunicornwsgi---django)
 >> 3-3. [NGINX - UVICORN(ASGI) - FASTAPI](#3-3-nginx---uvicornasgi---fastapi)
