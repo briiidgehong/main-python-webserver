@@ -7,9 +7,9 @@
 >> 3-3. [NGINX - UVICORN(ASGI) - FASTAPI](#3-3-nginx---uvicornasgi---fastapi) <br/>
 >> 3-4. [WAS + JAVA 진영과의 비교](#3-4-was--java-진영과의-비교)
 > 4. [환경 구성](#4-환경-구성)
->> 4-1. [EC2 + FASTAPI](#4-1-ec2--fastapi)
->> 4-2. [ELASTIC BEANSTALK + DOCKER(FASTAPI)](#4-2-elastic-beanstalk--dockerfastapi)
->> 4-3. [ECS + FARGATE + DOCKER(FASTAPI) + CODEPIPELINE](#4-3-ecs--fargate--dockerfastapi--codepipeline)
+>> 4-1. [EC2 + FASTAPI](#4-1-ec2--fastapi) <br/>
+>> 4-2. [ELASTIC BEANSTALK + DOCKER(FASTAPI)](#4-2-elastic-beanstalk--dockerfastapi) <br/>
+>> 4-3. [ECS + FARGATE + DOCKER(FASTAPI) + CODEPIPELINE](#4-3-ecs--fargate--dockerfastapi--codepipeline) <br/>
 
 
 ## 1. WEB SERVER
