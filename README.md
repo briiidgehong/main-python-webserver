@@ -12,6 +12,7 @@
 >> **4-1. [EC2 + FASTAPI](#4-1-ec2--fastapi)** <br/>
 >> **4-2. [ELASTIC BEANSTALK + DOCKER(FASTAPI)](#4-2-elastic-beanstalk--dockerfastapi)** <br/>
 >> **4-3. [ECS + FARGATE + DOCKER(FASTAPI) + CODEPIPELINE](#4-3-ecs--fargate--dockerfastapi--codepipeline)** <br/>
+>> **4-4. [LAMBDA + FASTAPI + GITHUB ACTION](#4-4-ecs--fargate--dockerfastapi--codepipeline)** <br/>
 
 
 ## 1. WEB SERVER
@@ -311,4 +312,6 @@ WAS (Web Application Server)
 ### 4-2. ELASTIC BEANSTALK + DOCKER(FASTAPI)
 
 ### 4-3. ECS + FARGATE + DOCKER(FASTAPI) + CODEPIPELINE
+
+### 4-4. LAMBDA + FASTAPI + GITHUB ACTION
 
