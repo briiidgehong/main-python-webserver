@@ -1,10 +1,10 @@
 # INDEX 
-1. [WEB SERVER](#1.-WEB-SERVER)
-2. [요청에따른 웹서버(NGINX)의 처리방식](#2.-요청에따른-웹서버(nginx)의-처리방식)
-3. [NGINX CGI(FCGI) ASGI WSGI](#3.-nginx-cgi(fcgi)-asgi-wsgi)
-> 3-1. [NGINX - FastCGI - PYTHON](#3-1.-NGINX---FastCGI---PYTHON)
-> 3-2. [NGINX - GUNICORN(WSGI) - DJANGO](#3-2.-NGINX---GUNICORN(WSGI)---DJANGO )
-> 3-3. [NGINX - UVICORN(ASGI) - FASTAPI](#3-3.-NGINX---UVICORN(ASGI)---FASTAPI )
+1. [WEB SERVER](#1-web-server)
+2. [요청에따른 웹서버(NGINX)의 처리방식](#2-요청에따른-웹서버nginx의-처리방식)
+3. [NGINX CGI(FCGI) ASGI WSGI](#3-nginx-cgifcgi-asgi-wsgi)
+>> 3-1. [NGINX - FastCGI - PYTHON](#3-1-nginx---fastcgi---python)
+>> 3-2. [NGINX - GUNICORN(WSGI) - DJANGO](#3-2-nginx---gunicornwsgi---django)
+>> 3-3. [NGINX - UVICORN(ASGI) - FASTAPI](#3-3-nginx---uvicornasgi---fastapi)
 
 ## 1. WEB SERVER
 <img width="768" alt="스크린샷 2022-10-09 오후 3 07 53" src="https://user-images.githubusercontent.com/73451727/194741222-22f25b8d-e14d-47ad-8ccf-28249c7e2b39.png">
