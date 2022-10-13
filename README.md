@@ -15,8 +15,8 @@
 >> **4-4. [LAMBDA + FASTAPI + GITHUB ACTION](#4-4-lambda--fastapi--github-action)** <br/>
 <br/>
 
-> **5. [django server in best practice](#4-환경-구성)** <br/>
-> **6. [fastapi server in best practice](#4-환경-구성)** <br/>
+> **5. [Django Server In Best Practice](#4-환경-구성)** <br/>
+> **6. [Fastapi Server In Best Practice](#4-환경-구성)** <br/>
 
 ## 1. WEB SERVER
 <img width="768" alt="스크린샷 2022-10-09 오후 3 07 53" src="https://user-images.githubusercontent.com/73451727/194741222-22f25b8d-e14d-47ad-8ccf-28249c7e2b39.png">
