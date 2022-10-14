@@ -385,8 +385,12 @@ sudo docker build -t dockerized-fast-api-image .
 > + docker-compose 적용
 > ```
 > - docker-compose.yml
-> ㅇㄴㅇㅁㄴ
-> op
+> version: '3.8'
+> services:
+>  fastapi:
+>    build: .
+>    ports:
+>      - 80:8080
 > ```
 > 
 > docker-compose up
