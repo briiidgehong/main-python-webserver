@@ -405,6 +405,19 @@ sudo docker build -t dockerized-fast-api-image .
 #### - EB 준비
 > ##### [EB](www.naver.com)
 
+```
+docker-compose.yml
+Dockerfile
+main.py
+requirements.txt
+```
+zip -r deploy.zip . (project root path 에서*) <br/>
+[fast-api-docer-compose.zip](https://github.com/briiidgehong/main-python-webserver/files/9786741/fast-api-docer-compose.zip)
+
+<img width="595" alt="스크린샷 2022-10-14 오후 10 41 34" src="https://user-images.githubusercontent.com/73451727/195861663-0ed78843-bd64-4133-9054-2d4cd75dcd3d.png">
+<img width="480" alt="스크린샷 2022-10-14 오후 10 42 01" src="https://user-images.githubusercontent.com/73451727/195861816-a4c87de6-7bc8-44d8-aca3-92193d515a2f.png">
+
+
 ### 4-3. ECS + FARGATE + DOCKER(FASTAPI) + CODEPIPELINE
 
 ### 4-4. LAMBDA + FASTAPI + GITHUB ACTION
