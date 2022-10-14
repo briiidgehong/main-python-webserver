@@ -272,7 +272,12 @@ service nginx restart
 rf) https://soyoung-new-challenge.tistory.com/81?category=890342 <br/>
 
 ```
-pip install fastapi uvicorn
+apt-get update
+apt-get upgrade
+
+apt-get install python3 python3-pip uvicorn
+
+pip install fastapi
 main.py
 
 from fastapi import FastAPI
@@ -310,7 +315,73 @@ WAS (Web Application Server)
 <img width="829" alt="스크린샷 2022-10-12 오후 5 36 52" src="https://user-images.githubusercontent.com/73451727/195293782-1d2a3144-3bb3-4a37-abcf-b9e576a82cad.png">
 
 ## 4. 환경 구성
-### 4-1. EC2 + FASTAPI
+### 4-1. EC2 + DOCKER(FASTAPI)
+```
+# install docker
+sudo apt-get update
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo service docker start
+sudo docker run hello-world
+
+# create dockerfile
+mkdir dockerized-fast-api
+sudo vi Dockerfile / main.py / requirements.txt
+
+- dockerfile
+FROM python:3.7
+USER root
+WORKDIR /app/
+COPY ./requirements.txt /app/requirements.txt
+RUN pip install -r /app/requirements.txt 
+COPY . /app/
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+
+- main.py
+from fastapi import FastAPI
+app = FastAPI()
+@app.get("/")
+async def root():
+    return {"message": "hello world dockerized fast api !!"}
+    
+- requirements.txt
+anyio==3.6.1
+click==8.1.3
+fastapi==0.85.0
+h11==0.14.0
+httptools==0.5.0
+idna==3.4
+importlib-metadata==5.0.0
+pydantic==1.10.2
+python-dotenv==0.21.0
+PyYAML==6.0
+sniffio==1.3.0
+starlette==0.20.4
+typing_extensions==4.4.0
+uvicorn==0.18.3
+uvloop==0.17.0
+watchfiles==0.17.0
+websockets==10.3
+zipp==3.9.0
+
+
+Docker build —t “dockerized-fast-api-image” .
+sudo docker build -t dockerized-fast-api-image .
+```
+<img width="534" alt="스크린샷 2022-10-14 오전 11 27 06" src="https://user-images.githubusercontent.com/73451727/195748607-a63df57f-77bf-441e-ad44-9b0d6fb6eb90.png">
+
 
 ### 4-2. ELASTIC BEANSTALK + DOCKER(FASTAPI)
 
