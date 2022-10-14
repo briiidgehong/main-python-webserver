@@ -403,7 +403,7 @@ sudo docker build -t dockerized-fast-api-image .
 ### 4-2. ELASTIC BEANSTALK + DOCKER(FASTAPI)
 
 #### - EB 준비
-> ##### [EB](www.naver.com)
+> ##### [EB](https://github.com/briiidgehong/main-aws-terraform/tree/main/EB)
 
 ```
 docker-compose.yml
