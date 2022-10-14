@@ -402,6 +402,9 @@ sudo docker build -t dockerized-fast-api-image .
 
 ### 4-2. ELASTIC BEANSTALK + DOCKER(FASTAPI)
 
+#### - EB 준비
+> ##### [EB](www.naver.com)
+
 ### 4-3. ECS + FARGATE + DOCKER(FASTAPI) + CODEPIPELINE
 
 ### 4-4. LAMBDA + FASTAPI + GITHUB ACTION
