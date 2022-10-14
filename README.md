@@ -382,6 +382,14 @@ sudo docker build -t dockerized-fast-api-image .
 ```
 <img width="534" alt="스크린샷 2022-10-14 오전 11 27 06" src="https://user-images.githubusercontent.com/73451727/195748607-a63df57f-77bf-441e-ad44-9b0d6fb6eb90.png">
 
+> + docker-compose 적용
+> ```
+> - docker-compose.yml
+> ㅇㄴㅇㅁㄴ
+> op
+> ```
+> 
+> docker-compose up
 
 ### 4-2. ELASTIC BEANSTALK + DOCKER(FASTAPI)
 
