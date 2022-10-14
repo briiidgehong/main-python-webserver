@@ -394,7 +394,7 @@ sudo docker build -t dockerized-fast-api-image .
 >      - 80:8080
 > ```
 > 
-> docker-compose up
+> docker-compose up -d
 
 ### 4-2. ELASTIC BEANSTALK + DOCKER(FASTAPI)
 
