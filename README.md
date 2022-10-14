@@ -316,6 +316,10 @@ WAS (Web Application Server)
 
 ## 4. 환경 구성
 ### 4-1. EC2 + DOCKER(FASTAPI)
+
+##### - UBUNTU EC2 준비
+
+
 ```
 # install docker
 sudo apt-get update
