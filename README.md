@@ -318,7 +318,7 @@ WAS (Web Application Server)
 ### 4-1. EC2 + DOCKER(FASTAPI)
 
 ##### - UBUNTU EC2 준비
-
+[AWS EC2](https://github.com/briiidgehong/main-aws-terraform/blob/main/ec2/readme.md)
 
 ```
 # install docker
