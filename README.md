@@ -419,6 +419,15 @@ zip -r deploy.zip . (project root path 에서*) <br/>
 
 
 ### 4-3. ECS + FARGATE + DOCKER(FASTAPI) + CODEPIPELINE
+#### - ECS
+> AWS의 ECS는 Amazon에서 제공하는 '완전관리형 컨테이너 오케스트레이션 툴'로써,
+> Docker 컨테이너를 이용하여 인프라 환경을 좀 더 편리하게 운영,관리 할 수 있게 해주는 서비스이다.
+> 비슷한 툴로서는 Kubernetes나 Docker Swarm이 있다.
+
+#### - ECS는 컨테이너 배포형식으로 EC2 와 fargate(serverless)를 사용할수 있다.
+> <img width="897" alt="스크린샷 2022-10-18 오전 11 28 51" src="https://user-images.githubusercontent.com/73451727/196321407-78027adf-9637-4bae-b8d7-f00bff5bd86f.png">
+
+
 
 ### 4-4. LAMBDA + FASTAPI + GITHUB ACTION
 
