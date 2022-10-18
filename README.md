@@ -436,6 +436,8 @@ zip -r deploy.zip . (project root path 에서*) <br/>
 #### - ECS는 컨테이너 배포형식으로 EC2 와 fargate(serverless)를 사용할수 있다.
 > <img width="897" alt="스크린샷 2022-10-18 오전 11 28 51" src="https://user-images.githubusercontent.com/73451727/196321407-78027adf-9637-4bae-b8d7-f00bff5bd86f.png">
 
+#### -ECS 준비
+> [ECS](https://github.com/briiidgehong/main-aws-terraform/tree/main/ECS-FARGATE)
 
 
 ### 4-4. LAMBDA + FASTAPI + GITHUB ACTION
