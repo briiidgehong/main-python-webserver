@@ -420,6 +420,10 @@ zip -r deploy.zip . (project root path 에서*) <br/>
 
 ### 4-3. ECS + FARGATE + DOCKER(FASTAPI) + CODEPIPELINE
 #### - ECS
+#### - 구성요소 4가지: 클러스터 / 컨테이너 / 테스크 / 서비스
+<img width="560" alt="스크린샷 2022-10-20 오후 4 40 15" src="https://user-images.githubusercontent.com/73451727/196886744-b000e9e3-3432-452d-ac68-ec42efc3a5db.png">
+
+
 > rf) https://wooono.tistory.com/m/133 <br/>
 > AWS의 ECS는 Amazon에서 제공하는 '완전관리형 컨테이너 오케스트레이션 툴'로써, <br/>
 > Docker 컨테이너를 이용하여 인프라 환경을 좀 더 편리하게 운영,관리 할 수 있게 해주는 서비스이다. <br/>
