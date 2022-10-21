@@ -419,8 +419,17 @@ zip -r deploy.zip . (project root path 에서*) <br/>
 
 
 ### 4-3. ECS + FARGATE + DOCKER(FASTAPI) + CODEPIPELINE
-#### -ECS 준비
+#### - 위의 docker build 된 image를 ECR에 업로드
+public repository / port 80:80 <br/>
+<img width="881" alt="스크린샷 2022-10-21 오후 5 04 22" src="https://user-images.githubusercontent.com/73451727/197145411-c3b21bf8-67e3-4c54-b288-223b7fce34c2.png">
+<img width="616" alt="스크린샷 2022-10-21 오후 5 04 06" src="https://user-images.githubusercontent.com/73451727/197145434-53dfbb43-a777-44ce-9731-ed485d85e72c.png">
+
+
+
+
+#### - ECS 준비
 > [ECS](https://github.com/briiidgehong/main-aws-terraform/tree/main/ECS-FARGATE)
+
 
 ### 4-4. LAMBDA + FASTAPI + GITHUB ACTION
 
