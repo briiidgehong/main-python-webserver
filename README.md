@@ -427,7 +427,7 @@ public repository / port 80:80 <br/>
 
 
 
-#### - ECS 준비
+#### - ECS 생성 및 테스트
 > [ECS](https://github.com/briiidgehong/main-aws-terraform/tree/main/ECS-FARGATE)
 
 
