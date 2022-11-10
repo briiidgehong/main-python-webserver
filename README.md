@@ -446,9 +446,38 @@ public repository / port 80:80 <br/>
 - 즉, 하나의 메인쓰레드가 파이썬 코드를 순차적으로 실행함
 - 코드를 병렬로 실행하기 위해서는 threading 모듈을 사용하여, 별도의 쓰레드를 생성해야함
 
-- 파이썬(오리지날 파이썬 구현인 CPython)은 전역 인터프리터 락킹(Global Interpreter Lock) 때문에 특정 시점에 하나의 파이썬 코드만을 실행하게 되는데, 
-- 이 때문에 파이썬은 실제 다중 CPU 환경에서 동시에 여러 파이썬 코드를 병렬로 실행할 수 없으며 인터리빙(Interleaving) 방식으로 코드를 분할하여 실행한다. 
-- 다중 CPU 에서 병렬 실행을 위해서는 다중 프로세스를 이용하는 multiprocessing 모듈을 사용한다.
+- 파이썬은 GIL을 사용하기 때문에 특정 시점에 하나의 파이썬 코드만을 실행하게 된다.
+
+- GIL(Global Interpreter Lock)
+- 코드를 실행할 때에 여러 쓰레드를 사용할 경우
+- 단 하나의 쓰레드만이 python object에 접근할 수 있도록 제한하는 mutex이다.
+- 이 lock이 필요한 이유는 CPython이 메모리를 관리하는 방법이 <<thread-safe하지 않기 때문이다.>>
+
+- mutex(mutual exclusion/상호배제)
+- 공유되는 메모리의 데이터에 여러 thread가 접근하는것을 막는 역할
+	void *dotprod(void *arg) {
+	   // ...
+	   dotstr.sum = 0
+	   pthread_mutex_lock(&mutexsum);
+	   dotstr.sum += mysum;
+	   pthread_mutex_unlock(&mutexsum);
+	   // ...
+	}
+
+- python의 메모리 관리 방법: reference counting
+- python은 <<ref의 count가 0이되면 메모리를 회수하는 방식으로 가비지를 없앤다.>>
+>>> import sys
+>>> a = []
+>>> b = a
+>>> sys.getrefcount(a)
+3
+
+- <<결론>>
+- 다수의 쓰레드가 한 데이터에 접근하면 reference counting 과정에서 문제가 생긴다.
+- 다 쓰지도 않은 메모리를 회수하거나, 이미 다 쓴 메모리를 그냥 두는 경우
+- 그렇기때문에, mutex==GIL을 사용하여 단일쓰레드만 인스턴스에 접근할수 있도록 한다.
+
+- 그러면, 어차피 GIL때문에 하나의 쓰레드만 코드에 접근할수 있는대 멀티쓰레딩을 한다고 뭐가 달라지나?
 
 
 ```
