@@ -480,4 +480,6 @@ public repository / port 80:80 <br/>
 - 그러면, 어차피 GIL때문에 하나의 쓰레드만 코드에 접근할수 있는대 멀티쓰레딩을 한다고 뭐가 달라지나?
 
 
-```
+
+``
+ref. [GIL/MUTEX/THREAD](https://dgkim5360.tistory.com/entry/understanding-the-global-interpreter-lock-of-cpython)
