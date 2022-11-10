@@ -439,3 +439,16 @@ public repository / port 80:80 <br/>
 
 ### 4-4. LAMBDA + FASTAPI + GITHUB ACTION
 
+## 7 ETC
+### 7-1. threading
+```
+- 파이썬 프로그램은 기본적으로 하나의 쓰레드에서 실행됨
+- 즉, 하나의 메인쓰레드가 파이썬 코드를 순차적으로 실행함
+- 코드를 병렬로 실행하기 위해서는 threading 모듈을 사용하여, 별도의 쓰레드를 생성해야함
+
+- 파이썬(오리지날 파이썬 구현인 CPython)은 전역 인터프리터 락킹(Global Interpreter Lock) 때문에 특정 시점에 하나의 파이썬 코드만을 실행하게 되는데, 
+- 이 때문에 파이썬은 실제 다중 CPU 환경에서 동시에 여러 파이썬 코드를 병렬로 실행할 수 없으며 인터리빙(Interleaving) 방식으로 코드를 분할하여 실행한다. 
+- 다중 CPU 에서 병렬 실행을 위해서는 다중 프로세스를 이용하는 multiprocessing 모듈을 사용한다.
+
+
+```
