@@ -478,8 +478,9 @@ public repository / port 80:80 <br/>
 - 그렇기때문에, mutex==GIL을 사용하여 단일쓰레드만 인스턴스에 접근할수 있도록 한다.
 
 - 그러면, 어차피 GIL때문에 하나의 쓰레드만 코드에 접근할수 있는대 멀티쓰레딩을 한다고 뭐가 달라지나?
+- 일반적으로 CPU bound 코드에서는 멀티스레딩을 한다한들 GIL때문에 유의미한 변화는 없다.
+- 그러나, Network I/O bound 코드에서는 멀티스레딩을 유의미하게 사용할 수 있다.
+- API call 시간만 0.3초를 100번 수행하는 코드에서는 io bound를 병렬로 처리하므로써 전체적인 시간을 줄일수 있다.
 
-
-
-``
+```
 ref. [GIL/MUTEX/THREAD](https://dgkim5360.tistory.com/entry/understanding-the-global-interpreter-lock-of-cpython)
