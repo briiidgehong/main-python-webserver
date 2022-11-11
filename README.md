@@ -483,5 +483,5 @@ public repository / port 80:80 <br/>
 - API call 시간만 0.3초를 100번 수행하는 코드에서는 io bound를 병렬로 처리하므로써 전체적인 시간을 줄일수 있다.
 
 ```
-ref. [GIL/MUTEX/THREAD](https://dgkim5360.tistory.com/entry/understanding-the-global-interpreter-lock-of-cpython)
+ref. [GIL/MUTEX/THREAD](https://dgkim5360.tistory.com/entry/understanding-the-global-interpreter-lock-of-cpython) <br/>
 ref. [multi Thread / multi Process / Network Bound / CPU Bound](https://velog.io/@ceaseless/python-GIL%EA%B3%BC-%EB%B3%91%EB%A0%AC%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
